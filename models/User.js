@@ -4,6 +4,7 @@ const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   age: { type: Number, required: true },
+  address: { type: String, required: true }, // Added field for address
   dni: { type: String, required: true }, // Added field for DNI
   tlf: { type: String, required: true } // Added field for phone number
 });
