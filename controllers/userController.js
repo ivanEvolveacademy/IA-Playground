@@ -22,7 +22,9 @@ exports.addUser = async (req, res, next) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({ name, email, age, address, dni, tlf, password: hashedPassword });
     await user.save();
-    res.status(201).json(user);
+    const userResponse = user.toObject();
+    delete userResponse.password;
+    res.status(201).json(userResponse);
   } catch (err) {
     next(err);
   }
