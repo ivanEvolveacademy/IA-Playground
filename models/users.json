@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Juan Perez",
+    "email": "juan.perez@email.com",
+    "age": 30
+  },
+  {
+    "name": "Ana Gomez",
+    "email": "ana.gomez@email.com",
+    "age": 25
+  }
+]
