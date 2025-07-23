@@ -1,5 +1,5 @@
 // Importar el controlador de usuarios y el módulo fs
-const userController = require('../userController'); // Actualizar el path relativo
+const userController = require('../userController');
 const fs = require('fs');
 
 // Simular el módulo fs para evitar operaciones reales en el sistema de archivos
