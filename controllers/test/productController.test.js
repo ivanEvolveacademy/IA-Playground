@@ -23,11 +23,9 @@ describe('productController.getProducts', () => {
   });
 
   it('should return products as JSON on success', () => {
-    // Simular datos de productos y la respuesta del método readFileSync
     const mockProducts = [{ id: 1, name: 'Product A' }];
     fs.readFileSync.mockReturnValue(JSON.stringify(mockProducts));
 
-    // Llamar al controlador
     productController.getProducts(req, res);
 
     // Verificar que la respuesta JSON contiene los productos simulados
