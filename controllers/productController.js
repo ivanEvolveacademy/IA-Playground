@@ -1,7 +1,10 @@
 const fs = require('fs');
 const path = require('path');
+
+// Definir la ruta al archivo JSON que contiene los productos
 const productsFilePath = path.join(__dirname, '../models/products.json');
 
+// Controlador para obtener la lista de productos
 exports.getProducts = (req, res) => {
   try {
     const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -11,14 +14,4 @@ exports.getProducts = (req, res) => {
   }
 };
 
-exports.addProduct = (req, res) => {
-  try {
-    const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-    const newProduct = req.body;
-    products.push(newProduct);
-    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-    res.status(201).json(newProduct);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-};
+

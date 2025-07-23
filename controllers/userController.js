@@ -1,7 +1,10 @@
 const fs = require('fs');
 const path = require('path');
+
+// Define the path to the users.json file located in the models directory
 const usersFilePath = path.join(__dirname, '../models/users.json');
 
+// Controller function to handle the retrieval of users
 exports.getUsers = (req, res) => {
   try {
     const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -11,14 +14,4 @@ exports.getUsers = (req, res) => {
   }
 };
 
-exports.addUser = (req, res) => {
-  try {
-    const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-    const newUser = req.body;
-    users.push(newUser);
-    fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-    res.status(201).json(newUser);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-};
+
